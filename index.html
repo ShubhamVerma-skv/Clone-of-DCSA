@@ -1,0 +1,936 @@
+<html lang="en" dir="ltr" oncontextmenu="return false">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+   
+   <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+      * 
+      {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+        user-select: none;
+      }
+      ::-webkit-scrollbar 
+      {
+      width: 9px;
+      }
+
+          ::-webkit-scrollbar-thumb {
+            border-radius: 1px;
+            background-color: #65a590;
+          }
+
+          /* ::-webkit-scrollbar-thumb:hover {
+            background-color: #65A590;
+          } */
+
+          ::-webkit-scrollbar-track {
+            border-radius: 15px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+
+          }
+          #new
+          {
+            background: #9b1e1e;
+            color:white;
+            border-radius: 10px;
+            font-weight: 700;
+          }
+          
+            .dot {
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+      }
+
+      .active {
+        background-color: #717171;
+      }
+
+      /* Fading animation */
+      .fade::after {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @-webkit-keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+
+      @keyframes fade {
+        from {opacity: .4} 
+        to {opacity: 1}
+      }
+      a {
+        text-decoration: none;
+        color: #8B0000;
+      }
+      /*Leftmost Upper Navigation: Start */
+      .leftMostNav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      .leftMostNav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        border-bottom: 1px solid white;
+      }
+      .leftMostNav a:hover {
+          color: #f1f1f1;
+      }
+      .leftMostNav .clButton {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+          border: none;
+      }
+      @media screen and (max-height: 450px) {
+        .leftMostNav {padding-top: 15px;}
+        .leftMostNav a {font-size: 18px;}
+        .leftMostNav .clButton {font-size: 18px;}
+      }
+      /*Leftmost Upper Navigation: End */
+      .nav {
+        overflow: hidden;
+        background-color: #333;
+      }
+      .nav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        position: relative;
+      }
+      .nav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+      .active {
+        background-color: #4CAF50;
+        color: white;
+      }
+      .nav .icon {
+        display: none;
+      }
+
+      @media screen and (max-width: 600px) {
+        .nav a:not(:first-child) {display: none;}
+        .nav a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .nav.responsive {position: relative;}
+        .nav.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+        .nav.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+      }
+
+      /*Syllabus Menu Sub Menu Start*/
+      #nav {
+          list-style:none inside;
+          margin:0;
+          padding:0;
+          text-align:center;
+          }
+
+      #nav li 
+      {
+        display:block;
+        position:relative;
+        float:left;
+        background: #333; /* menu background color */
+      }
+
+      #nav li a 
+      {
+        display:block;
+        padding:0;
+        text-decoration:none;
+        width:150px; /* this is the width of the menu items */
+        line-height:35px; /* this is the hieght of the menu items */
+        color: #f2f2f2; /* list item font color */
+      }
+              
+      #nav li li a 
+      {
+        font-size:80%;
+      } /* smaller font size for sub menu items */
+          
+      #nav li:hover 
+      { 
+        background:#ddd;
+      } /* highlights current hovered list item and the parent list items when hovering over sub menues */
+
+
+
+      /*--- Sublist Styles ---*/
+      #nav ul 
+      {
+        position:absolute;
+        padding:0;
+        left:0;
+        display:none; /* hides sublists */
+      }
+
+      #nav li:hover ul ul 
+      {
+        display:none;
+      } /* hides sub-sublists */
+
+      #nav li:hover ul {display:block;} /* shows sublist on hover */
+
+      #nav li li:hover ul 
+      {
+          display:block; /* shows sub-sublist on hover */
+          margin-left:150px; /* this should be the same width as the parent list item */
+          margin-top:-35px; /* aligns top of sub menu with top of list item */
+          }
+      #nav:after 
+      {
+      clear:both;
+      }
+      /*Syllabus Menu Sub Menu End*/
+
+      .row::after 
+      {
+          content: "";
+          clear: both;
+          display: table;
+          padding-bottom: 20px;
+          padding-top: 50px;
+      }
+      [class*="col-"] 
+      {
+          float: left;
+          padding: 15px;
+      }
+      html 
+      {
+          font-family: "Lucida Sans", sans-serif;
+      }
+      .header 
+      {
+          background-color: #9933cc;
+          color: #ffffff;
+          padding: 15px;
+      }
+      /* Left Menu Start */
+      .menu ul 
+      {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+      }
+      .menu li 
+      {
+          padding: 18px;
+          margin-bottom: 7px;
+          background-color: #65a590;
+          color: #ffffff;
+          cursor: pointer;
+          border-radius: 12px;
+          text-align: center;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      }
+      .menu li:hover 
+      {
+          background-color: #076e18;
+      }
+      /* Left Menu End */
+      .aside 
+      {
+          background-color: #65a590;
+          padding: 19px;
+          padding-left: 50px;
+          color: #ffffff;
+          font-size: 14px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+          border-radius: 13px;
+      }
+      .aside p 
+      {
+        font-size: 18px;
+      }
+      .aside ul 
+      {
+        font-size: 17px;
+        margin-left: -20px;
+        list-style-type:square;
+      }
+      .aside ul li 
+      {
+        margin-top: 10px; 
+      }
+      .aside ul li a 
+      {
+        text-decoration: none;
+        color: #8B0000;
+      }
+      /*Table Responsive : Start*/
+      #second-div,#third-Section,#fourth-Section 
+      {
+        display: none;
+      }
+      .resp-table 
+      {
+        display: table;
+        width: 100%;
+      }
+      .resp-table-caption 
+      {
+        display: table-caption;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .resp-table-header 
+      {
+        display: table-header-group;
+        background-color: gray;
+        font-weight: bold;
+        font-size: 15px;
+      }
+      .resp-table-header-cell 
+      {
+        display: table-cell;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid black;
+      }
+      .resp-table-body 
+      {
+        display: table-row-group;
+      }
+      .resp-table-row 
+      {
+        display: table-row;
+        height: 35px;
+        vertical-align: middle;
+      }
+      .resp-table-row:nth-of-type(odd) 
+      {
+        background: #c2d6d6;
+      }
+      .resp-table-row:nth-of-type(even) 
+      {
+        background-color: #f0f5f5;
+      }
+      .resp-table-body-cell 
+      {
+        display: table-cell;
+        text-align: left;
+      }
+      .resp-table-footer 
+      {
+        display: table-footer-group;
+        background-color: gray;
+        font-weight: bold;
+        font-size: 15px;
+        color: rgba(255,255,255,0.45);
+      }
+      .resp-table-footer-cell 
+      {
+        display: table-cell;
+        padding: 10px;
+        text-align: center;
+        border-bottom: 1px solid black;
+      }
+      /*Table Responsive : End*/
+
+      /*Gallery Responsive: Start*/
+      .gallery 
+      {
+          border: 1px solid #ccc;
+      }
+
+      .gallery:hover 
+      {
+          border: 1px solid #777;
+      }
+
+      .gallery img 
+      {
+          width: 100%;
+          height: auto;
+      }
+
+      .desc 
+      {
+          padding: 15px;
+          text-align: center;
+      }
+
+      .responsive 
+      {
+          padding: 0 6px;
+          float: left;
+          width: 32.99999%;
+      }
+
+      @media only screen and (max-width: 768px)
+      {
+          .responsive {
+              width: 49.99999%;
+              margin: 6px 0;
+          }
+      }
+
+      @media only screen and (max-width: 600px)
+      {
+          .responsive 
+          {
+              width: 100%;
+          }
+      }
+
+      .clearfix:after 
+      {
+          content: "";
+          display: table;
+          clear: both;
+      }
+      /*Gallery Responsive: End*/
+      /*Gallery Videos: Start*/
+      .gallery iframe 
+      {
+          width: 100%;
+          height: 100%;
+      }
+      /*Gallery Videos: End*/
+      /*Registration: Start*/
+      input[type=text], select, textarea
+      {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+      }
+
+      label 
+      {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+      }
+
+      input[type=submit] 
+      {
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+      }
+
+      input[type=submit]:hover 
+      {
+        background-color: red;
+      }
+
+      .container 
+      {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+
+      .colf-25 
+      {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+      }
+
+      .colf-75 
+      {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+      }
+
+      @media (max-width: 600px) 
+      {
+        .colf-25, .colf-75, input[type=submit] 
+        {
+          width: 100%;
+          margin-top: 0;
+        }
+      }
+      .facultyProfile 
+      {
+        font-family: courier; 
+        border-bottom: solid 1px silver;
+      }
+      .facultyProfile p, h4
+      {
+        text-align: left;
+      }
+      .facultyProfile img
+      {
+        width: 130px;
+
+      }
+      .facultyProfile a
+      {
+        color: black;
+        text-decoration: none;
+
+      }
+      #detailedResume 
+      {
+        text-align: center;
+        margin-left: 20px;
+      }
+
+      .facultyProfile::after 
+      {
+          content: "";
+          clear: both;
+          display: table;
+      }
+
+      /*Registration: End*/
+      .footer 
+      {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%; 
+          background-color: #65a590;
+          color: #ffffff;
+          text-align: right;
+          font-size: 18px;
+          padding: 15px;
+      }
+      .footer a 
+      {
+        text-decoration: none;
+        font-size: large;
+        font-weight: 700;
+        color: #4d0202;
+      }
+      /*for responsive */
+
+      /* For mobile phones: */
+      [class*="col-"] 
+      {
+          width: 100%;
+      }
+      @media only screen and (min-width: 600px) 
+      {
+          /* For tablets: */
+          .col-m-0 {display: none;}
+          .col-m-1 {width: 8.33%;}
+          .col-m-2 {width: 16.66%;}
+          .col-m-3 {width: 25%;}
+          .col-m-4 {width: 33.33%;}
+          .col-m-5 {width: 41.66%;}
+          .col-m-6 {width: 50%;}
+          .col-m-7 {width: 58.33%;}
+          .col-m-8 {width: 66.66%;}
+          .col-m-9 {width: 75%;}
+          .col-m-10 {width: 83.33%;}
+          .col-m-11 {width: 91.66%;}
+          .col-m-12 {width: 100%;}
+      }
+      @media only screen and (min-width: 768px) 
+      {
+          /* For desktop: */
+          .col-0 {display: none;}
+          .col-1 {width: 8.33%;}
+          .col-2 {width: 16.66%;}
+          .col-3 {width: 25%;}
+          .col-4 {width: 33.33%;}
+          .col-5 {width: 41.66%;}
+          .col-6 {width: 50%;}
+          .col-7 {width: 58.33%;}
+          .col-8 {width: 66.66%;}
+          .col-9 {width: 75%;}
+          .col-10 {width: 83.33%;}
+          .col-11 {width: 91.66%;}
+          .col-12 {width: 100%;}
+      }
+      #container
+      {
+        display: grid;
+        grid-template-columns: repeat(8, 70px);
+        grid-template-rows: 40px repeat(8, 70px) 40px;
+      }
+      nav 
+      {
+        display: flex;
+        height: 80px;
+        width: 100%;
+        background: #65a590;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 50px 0 100px;
+        flex-wrap: wrap;
+      }
+      nav .logo {
+        color: #fff;
+        font-size: 35px;
+        font-weight: 600;
+      }
+      nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+      }
+      nav ul li {
+        margin: 0 5px;
+      }
+      nav ul li a {
+        color: #f2f2f2;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 8px 15px;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+      }
+      nav ul li a.active,
+      nav ul li a:hover {
+        color: #111;
+        background: #fff;
+      }
+      nav .menu-btn i {
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+        display: none;
+      }
+      input[type="checkbox"] {
+        display: none;
+      }
+      #ku {
+        float: left;
+        width: 27%;
+        height: 60%;
+      }
+      @media (max-width: 1000px) {
+        nav {
+          padding: 0 40px 0 50px;
+        }
+      }
+      @media (max-width: 920px) {
+        .footer
+        {
+        background-color: #65a590;
+        color: #ffffff;
+        text-align: center;
+        font-size: 12px;
+        padding: 15px;}
+        nav .menu-btn i {
+          display: block;
+        }
+        #click:checked ~ .menu-btn i:before {
+          content: "\f00d";
+        }
+        #dcsa
+        {
+            padding-top: 30px;
+            width: 100%;
+        }
+        nav ul {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          background: #65a590;
+          height: 100vh;
+          width: 100%;
+          text-align: center;
+          display: block;
+          transition: all 0.3s ease;
+        }
+        #click:checked ~ ul {
+          left: 0;
+        }
+        nav ul li {
+          width: 100%;
+          margin: 40px 0;
+        }
+        nav ul li a {
+          width: 100%;
+          margin-left: -100%;
+          display: block;
+          font-size: 20px;
+          transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        #click:checked ~ ul li a {
+          margin-left: 0px;
+        }
+        nav ul li a.active,
+        nav ul li a:hover {
+          background: none;
+          color: cyan;
+        }
+      }
+/*       .content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: -1;
+        width: 100%;
+        padding: 0 30px;
+        color: #1b1b1b;
+      }
+      .content div {
+        font-size: 40px;
+        font-weight: 700;
+      } */
+      #dcsa
+      {
+        margin: 0 auto;
+        width: 100%;
+        height: 50%;
+      }
+    </style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <nav  style="position:fixed">
+        <div class="logo">
+            <img src="https://i.ibb.co/qNRBqPx/kuk.png" id="ku" />&nbsp;&nbsp;<a style="text-decoration: none; color:white;"href="index.html">DCSA</a> </div>
+      <input type="checkbox" id="click" />
+      <label for="click" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="syllabus.html">Syllabus</a></li>
+        <li><a href="timetable.html">TimeTable</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="admission.html">Admission<sup id="new">New</sup></a></li>
+        <li><a href="registration.html">Registration</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="content" style="padding-top: 100px;">
+        <div class="mySlides fade">
+            <img src="https://i.ibb.co/BBQ5mkq/dcsa.jpg" id= "dcsa" style="width:100%">
+          </div>
+          
+          <div class="mySlides fade">
+          
+            <img src="https://i.ibb.co/FXXYyMK/dcsa1.jpg" id= "dcsa" style="width:100%; height: 50%;">
+          
+          </div>
+          
+          <div class="mySlides fade">
+            <img src="https://i.ibb.co/QFrYcbW/dcsa2.jpg" id= "dcsa" style="width:100%; height: 50%;">
+          </div>
+          <div class="mySlides fade">
+            <img src="https://i.ibb.co/xq98TZD/dcsa4.jpg" id= "dcsa" style="width:100%; height: 50%;">
+          </div>
+          <br>
+        <div style="text-align:center">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        </div>
+      <!-- <div><img id= "dcsa" src="dcsa.jpg" class="mySlides fade"></div> -->
+    </div>
+    <div class="row" >
+        <div class="menu col-3 col-m-3">
+      <ul>
+        <li id="vision" onclick = "firstFunc()"> Vision </li>
+            <li id="Courses" onclick = "secondFunc()"> Courses </li>
+            <li id="Facilities" onclick = "thirdFunc()"> Facilities </li>
+            <li id="Intro_stud" onclick = "fourthFunc()"> Instructions for Students </li>
+          </ul>  
+        </div> 
+  
+        <div class="col-6 col-m-9" style="text-align:justify;">
+          <div id="first-div">
+            <h3> Vision</h3>
+            <p> Department of Computer Science and Applications is committed to becoming internationally recognized for imparting education and research especially in the domain where such research can empower the human potential in service to science and society. </p>
+            <p> Department is committed to creating an environment and culture that fosters excellence and diversity, and inspires a generation of computer professionals externally visible to the college, university, and international computing communities. We are committed to prepare our students for diverse workplaces of the global economy through continuing curriculum improvements. </p>
+            <p> We approach these goals with an experienced faculty in several domains; three post-graduate programs that have reached the upper echelons of Ph.D. production. We are committed to achieving these goals knowing that some of them will only be achieved by determined, long-term effort by our faculty and students.  </p>
+          </div>
+          <div id="second-div" style="overflow: auto; width: a; height: 110px;text-align:justify;">
+            <div id="scro" style="height: 320px;overflow: scroll;scroll-behavior: smooth;overflow-x: hidden;">  
+              <div id="phd"  class="my-5">
+                <h3>Ph.D. (Doctor of Philosophy): </h3> </a>
+                <a href="http://phd.dcsakuk.co.in/index.html" target="_blank"> Click here for Information </a>  
+              </div>
+              <div id="mtech">
+                <h3>M.Tech (Computer Science and Engineering): </h3>
+                <p>This program provides higher education in the field of Computer Science & Engineering. The syllabi include exhaustive and appropriate mix of topics related to engineering & technology. The admission to this course is made on the basis of GATE/Entrance Test. </p>
+                <i><p>Sheets : 60 & Duration : 2 Years </p> </i>
+                <h4>Eligibility -</h4>
+                <p>(i) M.Sc. in Computer Science/Computer Science (Software)/information Tech. with at least 50% marks (47.50% marks for SC/ST) in aggregate. <b>or </b></p>
+                <p>(ii) M.C.A. with at least 50% marks (47.50% marks for SC/ST) in aggregate. <b>or </b></p>
+                <p>(iii) B.E./B.Tech. in Computer Engg./Computer Sc. & Engg./Information Tech. with at least 50% marks (47.50% marks for SC/ST) in aggregate.</p>
+                <h4>Admission Criteria </h4>
+                <p>Made on the basis of GATE score. Remaining seats will be filled up on the basis of merit of qualifying exams.</p>
+              </div>
+              <div id="mca" class="my-5">
+                <h3>Master of Computer Application (M.C.A.)</h3>
+                <p>The three years (Six semesters) program provides education in the field of Computer Application. The curriculum also includes managerial courses apart from the common core. One semester full time industrial experience, which is a curriculum requirement, exposes the students to the industrial working environment. The admission to this course is through a State level written test.</p>
+                <i><p>MCA : Sheets : 100 & Duration : 3 Years </p>
+                <p>MCA-LEET : Sheets : 20 & Duration : 2 Years (Admission to 3rd Semester) </p> </i>
+              </div>
+              <div id="msc"  class="my-5">
+                <h3>M.Sc. (Computer Science Software) </h3>
+                <p>The course aims at imparting comprehensive knowledge and practice covering a wide area of computer applications. This two years program was started with an aim directed at opening new avenues of computer graduates. The admission to this course is through a University level written test. </p>
+                <i><p>Sheets : 40 & Duration : 2 Years </p> </i>
+                <h4>Eligibility: </h4>
+                <p>(i) B.Sc./B.Com. with Computer Science or Computer  Applications  (Vocational)  as one  of  the  subjects  with  atleast  50% marks in aggregate. <b>or </b></p>
+                <p>(ii) B.Sc.(Hons.) in Computer Science or B.Sc.(Hons.) Information Technology or B.Sc. Information Technology or BIS/BSIS with atleast 50% marks in aggregate. <b>or </b></p>
+                <p>(iii) B.A. with Computer Science with atleast 50% marks in aggregate and having Mathematics as one of the subjects at graduation level. <b>or </b></p>
+                <p>(iv) BCA  with  50%  marks  in  aggregate; or Post B.Sc. Diploma in Computer Science & Application/ P.G. Diploma in Computer Applications/P.G. Diploma in Computer Science with atleast 50% marks in aggregate. Provided that those students who have passed the One Year Diploma courses must have passed B.Sc.(Non-Medical)or B.A. with Mathematics at their graduation level. </p>
+                <h4>Admission Criteria: </h4>
+                <p>Entrance Test- 50%, Qualifying Examination -50%, plus weightages.</p>
+              </div>
+            </div>
+          </div>
+          <div id="third-Section">
+            <h3> Labs </h3>
+            <p> The department is equipped with four computer labs. The total number of machine available are approximately 250 comprising of 4 IBM xeon servers, 120 thin clients, P IV machines, Laser printers, network printers and software like ORACLE, Visual studio, Windows, Linux, etc. </p>
+            <h3> Library </h3>
+            <p> The departmental library provides approximately 10,000 books (Text and reference) with a sitting capacity of 60 students. </p>
+            <h3> Seminar Room </h3>
+            <p> The department’s air conditioned seminar room is equipped with all the audio-visual aids, like LCD projector, mike, speakers, visual presenter etc. </p>
+          </div>
+          <div id="fourth-Section">
+            <div id="scro" style="height: 320px;overflow: scroll;scroll-behavior: smooth;overflow-x: hidden;">    <!-- style="height: 320px;overflow: scroll;scroll-behavior: smooth;overflow-x: hidden;"-->
+            <h3> Instructions for Students </h3>
+            <ol>
+              <li> <p>For information regarding Syllabus of the course, Library services, admission to Hostels, fee concession, scholarships etc. the candidates are advised to contact the Chairperson /Director of the Department/ Institute concerned.</p></li>
+              <li><br><p>If a student fails to attend his/her classes continuously for seven days from the date of commencement of the classes or from the date of admission, his/her admission shall be cancelled.</p></li>
+              <li><br><p>Students of M.A/M.Sc./M.Com. (1st and 2nd semester) are required to qualify 50% of the papers in the examinations, for being allowed admission to the course in 3rd semester.</p></li>
+              <li><br><p>Every student is required to attend classes regularly. If a student attends classes less than the required number i.e. 75%, then he/she can be detained from appearing in the examinations.</p></li>
+              <li><p><br>A student should always wear his/her ID-Card around his/her neck on the Campus. The same should be shown when identity proof is required by the University officials.</p></li>
+              <li><br><p>A student should always wear his/her ID-Card around his/her neck on the Campus. The same should be shown when identity proof is required by the University officials.</p></li>
+              <li><p><br>Cleanliness should be maintained in the Department by all the students. If anyone found throwing garbage here and there, strict action will be taken against him/her.</p></li>
+            </ol>
+            <p>For more information please read <a href="Syllabus/HBI201718.pdf" target="_blank" style="color: #8B0000; text-decoration: none;">HBI 2017</a>.</p>
+          </div>
+          </div>
+        </div>
+        
+         <div class="col-3 col-m-12">
+          <div class="aside">
+            <h2> Current Events </h2>
+            <ul>
+              <li> New Session Start, <a href="https://drive.google.com/file/d/1C2bUOUBjGkFe3nTRAV6ao5FONFv83lUh/preview" target="_blank"> Download </a> Prospectus</li>
+              <li> 08-Aug-2021, MCA (CBCS), First Year Result declared. </li>
+              <li> 12-Jul-2021, Smt. Divesh, PhD Viva delivered. </li>
+              <li> 11-Jun-2021, Smt. Salini Aggarwal, PhD Viva delivered. </li>
+              <li> 01-Jun-2021, M.Sc. (CBCS), First Year Result declared. </li>
+            </ul>
+          </div>
+        </div> 
+      </div>
+      <div class="footer">
+        <p> Made By : <a href="shubhamvermaskv.14@gmail.com" >Shubham Verma </a></p>
+      </div>
+      <script>
+    var slideIndex = 0;
+    showSlides();
+    function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    }
+
+  function firstFunc() {
+    document.getElementById("second-div").style.display = "none";
+    document.getElementById("third-Section").style.display = "none";
+    document.getElementById("fourth-Section").style.display = "none";
+    document.getElementById("first-div").style.display = "table";
+    document.getElementById("vision").innerHTML = "Vision &raquo;";
+    document.getElementById("Courses").innerHTML = "Courses";
+    document.getElementById("Facilities").innerHTML = "Facilities";
+    document.getElementById("Intro_stud").innerHTML = "Instructions for Students";    
+  }
+  function secondFunc() {
+    document.getElementById("first-div").style.display = "none";
+    document.getElementById("third-Section").style.display = "none";
+    document.getElementById("fourth-Section").style.display = "none";
+    document.getElementById("second-div").style.display = "table";
+    document.getElementById("vision").innerHTML = "Vision";
+    document.getElementById("Courses").innerHTML = "Courses &raquo;";
+    document.getElementById("Facilities").innerHTML = "Facilities";
+    document.getElementById("Intro_stud").innerHTML = "Instructions for Students";
+  }
+  function thirdFunc() {
+    document.getElementById("first-div").style.display = "none";   
+    document.getElementById("second-div").style.display = "none";
+    document.getElementById("fourth-Section").style.display = "none";
+    document.getElementById("third-Section").style.display = "table";
+    document.getElementById("vision").innerHTML = "Vision";
+    document.getElementById("Courses").innerHTML = "Courses";
+    document.getElementById("Facilities").innerHTML = "Facilities &raquo;";
+    document.getElementById("Intro_stud").innerHTML = "Instructions for Students";
+  }
+  function fourthFunc() {
+    document.getElementById("first-div").style.display = "none";   
+    document.getElementById("second-div").style.display = "none";
+    document.getElementById("third-Section").style.display = "none";
+    document.getElementById("fourth-Section").style.display = "table";
+    document.getElementById("vision").innerHTML = "Vision";
+    document.getElementById("Courses").innerHTML = "Courses";
+    document.getElementById("Facilities").innerHTML = "Facilities";
+    document.getElementById("Intro_stud").innerHTML = "Instructions for Students &raquo;";
+  }
+  </script>
+    </body>
+  </html>

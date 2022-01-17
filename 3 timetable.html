@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1024" />
+  <title>Timetable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Itim', cursive;
+      font-size: 16px;
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      background-color: #034763;
+      color: white;
+      text-align: center;
+      font-size: 32px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    #footerc {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #214F57;
+      color: white;
+      text-align: right;
+      font-size: 25px;
+      border: 2px white;
+    }
+
+    .container {
+      display: flex;
+      width: 95%;
+      margin: 1% auto;
+      padding: 40px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1.2rem 3rem 0.5rem rgb(0 0 0 / 20%);
+      background: #fff;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 5px 20px;
+      text-align: center;
+    }
+
+    td {
+      color: red;
+    }
+
+    .bold {
+      font-weight: 600;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    #ttt {
+      text-align: right;
+
+      font-size: 15px;
+      color: black;
+      text-shadow: none;
+      font-weight: 600;
+    }
+
+    #lec {
+      color: rgb(9, 95, 48);
+      font-weight: 700;
+      text-align: left;
+
+
+    }
+
+    #lec1 {
+      text-align: right;
+    }
+
+    @media all and (max-width: 700px) {
+      .container {
+        width: auto;
+        background: rgb(255, 255, 255);
+        padding: 7px;
+
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div style="font-size: 22px; font-weight: 600">
+      <u>
+        <p style="font-size: 25px; font-family: 'Itim', cursive">Department of Computer Science and Applications,
+          Kurukshetra</p>
+      </u>
+    </div>
+    <div style="font-size: 20px; margin: 10px">
+      <b>
+        <p
+          style="font-size: 16px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+          Time Table 2021(5th Sem)</p>
+      </b>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th colspan="1">Day</th>
+          <th>Classes</th>
+          <th>09:00-09:30</th>
+          <th>09:45-10:20</th>
+          <th>10:30-11:05</th>
+          <th>11:15-11:50</th>
+          <th>12:00-12:35</th>
+          <th>12:45-01:20</th>
+          <th>01:30-02:05</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- monday -->
+        <tr>
+          <th style="writing-mode: tb-rl; transform: rotate(180deg)" rowspan="6">
+            MONDAY
+          </th>
+          <th>MT 3rd</th>
+          <td>MN-20-31(ii)</td>
+          <td>RKC-20-32</td>
+          <td>RK-20-32</td>
+          <td>CK-20-32</td>
+          <td>ST-20-32</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(A)</th>
+          <td rowspan="2" colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(B)</th>
+        </tr>
+        <tr>
+          <th>MCA 5th(A)</th>
+          <td class="bold">ST,SL-16-57</td>
+          <td>RKK-16-52</td>
+          <td>JY-16-65(ii)</td>
+          <td></td>
+          <td class="bold">YO,JS-16-56</td>
+          <td>YO-16-51</td>
+          <td>SL-16-53</td>
+        </tr>
+        <tr>
+          <th>MCA 5th(B)</th>
+          <td class="bold">YO,SSH-16-56</td>
+          <td>SM-16-55(ii)</td>
+          <td>RKK-16-52</td>
+          <td></td>
+          <td class="bold">PK,SL-16-57</td>
+          <td>SL-16-53</td>
+          <td>YO-16-51</td>
+        </tr>
+        <tr>
+          <th>M.Sc. 3rd</th>
+          <td colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+
+        <!-- Tuesday -->
+        <tr>
+          <th style="writing-mode: tb-rl; transform: rotate(180deg)" rowspan="6">
+            TUESDAY
+          </th>
+          <th>MT 3rd</th>
+          <td>MN-20-31(ii)</td>
+          <td>SU-20-32</td>
+          <td>RK-20-32</td>
+          <td>RKK-20-32</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(A)</th>
+          <td rowspan="2" colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(B)</th>
+        </tr>
+        <tr>
+          <th>MCA 5th(A)</th>
+          <td class="bold">ST,SL-16-57</td>
+          <td>RKK-16-52</td>
+          <td>JY-16-65(ii)</td>
+          <td></td>
+          <td class="bold">YO,AN-16-56</td>
+          <td>YO-16-51</td>
+          <td>SL-16-53</td>
+        </tr>
+        <tr>
+          <th>MCA 5th(B)</th>
+          <td class="bold">YO,SSH-16-56</td>
+          <td>SM-16-55(ii)</td>
+          <td>RKK-16-52</td>
+          <td></td>
+          <td class="bold">PK,SL-16-57</td>
+          <td>SL-16-53</td>
+          <td>YO-16-51</td>
+        </tr>
+        <tr>
+          <th>M.Sc. 3rd</th>
+          <td colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+
+        <!-- Wednesday -->
+        <tr>
+          <th style="writing-mode: tb-rl; transform: rotate(180deg)" rowspan="6">
+            WEDNESDAY
+          </th>
+          <th>MT 3rd</th>
+          <td>MN-20-31(ii)</td>
+          <td>RN-20-32</td>
+          <td>PK-20-32</td>
+          <td>KG-20-32</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(A)</th>
+          <td rowspan="2" colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(B)</th>
+        </tr>
+        <tr>
+          <th>MCA 5th(A)</th>
+          <td class="bold">ST,SL-16-57</td>
+          <td>RKK-16-52</td>
+          <td rowspan="2">NI-16-54(i),PJK-16-54(ii),ST-16-54(iii)</td>
+          <td></td>
+          <td class="bold">YO,AN-16-56</td>
+          <td>YO-16-51</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 5th(B)</th>
+          <td class="bold">YO,SSH-16-56</td>
+          <td>SM-16-55(ii)</td>
+          <td></td>
+          <td class="bold">PK,SL-16-57</td>
+          <td>SL-16-53</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>M.Sc. 3rd</th>
+          <td colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+
+        <!-- Thursday -->
+        <tr>
+          <th style="writing-mode: tb-rl; transform: rotate(180deg)" rowspan="6">
+            THURSDAY
+          </th>
+          <th>MT 3rd</th>
+          <td>MN-20-31(ii)</td>
+          <td>RN-20-32</td>
+          <td>PK-20-32</td>
+          <td>KG-20-32</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(A)</th>
+          <td rowspan="2" colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(B)</th>
+        </tr>
+        <tr>
+          <th>MCA 5th(A)</th>
+          <td class="bold">ST,SL-16-57</td>
+          <td>RKK-16-52</td>
+          <td rowspan="2">NI-16-54(i),PJK-16-54(ii),ST-16-54(iii)</td>
+          <td></td>
+          <td class="bold">YO,AN-16-56</td>
+          <td>YO-16-51</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 5th(B)</th>
+          <td class="bold">YO,SSH-16-56</td>
+          <td>SM-16-55(ii)</td>
+          <td></td>
+          <td class="bold">PK,SL-16-57</td>
+          <td>SL-16-53</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>M.Sc. 3rd</th>
+          <td colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+
+        <!-- Friday -->
+        <tr>
+          <th style="writing-mode: tb-rl; transform: rotate(180deg)" rowspan="6">
+            FRIDAY
+          </th>
+          <th>MT 3rd</th>
+          <td>MN-20-31(ii)</td>
+          <td>RN-20-32</td>
+          <td>CK-20-32</td>
+          <td>KG-20-32</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(A)</th>
+          <td rowspan="2" colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(B)</th>
+        </tr>
+        <tr>
+          <th>MCA 5th(A)</th>
+          <td class="bold">ST,SL-16-57</td>
+          <td>JY-16-55(II)</td>
+          <td rowspan="2">NI-16-54(i),PJK-16-54(ii),ST-16-54(iii)</td>
+          <td></td>
+          <td class="bold">YO,JS-16-56</td>
+          <td>SL-16-53</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 5th(B)</th>
+          <td class="bold">YO,JS-16-56</td>
+          <td>RKK-16-52</td>
+          <td></td>
+          <td class="bold">PK,SL-16-57</td>
+          <td>YO-16-51</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>M.Sc. 3rd</th>
+          <td colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+
+        <!-- Saturday -->
+        <tr>
+          <th style="writing-mode: tb-rl; transform: rotate(180deg)" rowspan="8">
+            SATURDAY
+          </th>
+          <th>MT 3rd</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>ST-20-32</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(A)</th>
+          <td rowspan="2" colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+        <tr>
+          <th>MCA 3rd(B)</th>
+        </tr>
+        <tr>
+          <th>MCA 5th(A)</th>
+          <td>SL-16-53</td>
+          <td>JY-16-55(ii)</td>
+          <td rowspan="2">NI-16-54(i),PJK-16-54(ii),ST-16-54(iii)</td>
+          <td></td>
+          <td></td>
+          <td>SL-16-53</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>MCA 5th(B)</th>
+          <td></td>
+          <td>RK-16-52</td>
+          <td></td>
+          <td></td>
+          <td>YO-16-51</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>M.Sc. 3rd</th>
+          <td colspan="7" style="text-align: center">
+            Internship/Summer Training of 45 days
+          </td>
+        </tr>
+        <tr>
+          <th>OPEN ELE.</th>
+          <td>JS-OE-302</td>
+          <td>JS-OE-302</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>OPEN ELE.</th>
+          <td>VJ-OE-302</td>
+          <td>VJ-OE-302</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!--shubham-->
+        <th style="writing-mode: tb-rl; transform: rotate(180deg)" rowspan="11">
+          <!--9 default-->
+          LECTURER
+        </th>
+        <tr>
+          <th colspan="1" id="lec1">RKC-</th>
+          <td colspan="2" id="lec">DR. R.K.CHAUHAN</td>
+          <th colspan="1" id="lec1"> SL-</th>
+          <td colspan="2" id="lec">Mr. Sachin Lalar</td>
+          <th colspan="1" id="lec1"> PJK-</th>
+          <td colspan="3" id="lec">MS. PRABHJOT KAUR</td>
+        </tr>
+        <tr>
+          <th colspan="1" id="lec1">SU-</th>
+          <td colspan="2" id="lec">DR. (MRS.) SHUCHITA UPADHYAYA</td>
+          <th colspan="1" id="lec1"> YO- </th>
+          <td colspan="2" id="lec">Ms. Yogita</td>
+          <th colspan="1" id="lec1"> SG-</th>
+          <td colspan="3" id="lec">MS. SEEMA GILL (ON LEAVE)</td>
+        </tr>
+        <tr>
+          <th colspan="1" id="lec1">SU-</th>
+          <td colspan="2" id="lec">DR. RAJENDER NATH</td>
+          <th colspan="1" id="lec1"> SS- </th>
+          <td colspan="2" id="lec">MS SMITA SHARMA</td>
+          <th colspan="1" id="lec1"> HS-</th>
+          <td colspan="3" id="lec">MR. HARISH SAINI</td>
+        </tr>
+        <tr>
+          <th colspan="1" id="lec1">RK-</th>
+          <td colspan="2" id="lec">DR. RAKESH KUMAR</td>
+          <th colspan="1" id="lec1"> MN- </th>
+          <td colspan="2" id="lec">MS MEENAKSHI</td>
+          <th colspan="1" id="lec1"> JYS-</th>
+          <td colspan="3" id="lec">MS. JYOTI SAINI</td>
+        </tr>
+        <tr>
+          <th colspan="1" id="lec1">PK-</th>
+          <td colspan="2" id="lec">DR. PARDEEP KUMAR</td>
+          <th colspan="1" id="lec1"> AN- </th>
+          <td colspan="2" id="lec"> MS ANKITA</td>
+          <th colspan="1" id="lec1"> NI-</th>
+          <td colspan="3" id="lec">MS. NISHA</td>
+        </tr>
+        <tr>
+          <th colspan="1" id="lec1">CK-</th>
+          <td colspan="2" id="lec">DR. CHANDER KANT</td>
+          <th colspan="1" id="lec1"> KTG- </th>
+          <td colspan="2" id="lec"> MS KIRTI GUPTA </td>
+          <th colspan="1" id="lec1"> PR-</th>
+          <td colspan="3" id="lec">MS. PREETI</td>
+        </tr>
+        <tr>
+          <th colspan="1" id="lec1">RKK -</th>
+          <td colspan="2" id="lec">DR. RAMESH KUMAR KAIT</td>
+          <th colspan="1" id="lec1"> JS- </th>
+          <td colspan="2" id="lec"> MS. JYOTI</td>
+          <th colspan="1" id="lec1"> SO-</th>
+          <td colspan="3" id="lec">MS. SONALI</td>
+        </tr>
+        <tr>
+          <th colspan="1" id="lec1">MO-</th>
+          <td colspan="2" id="lec">DR. MONIKA (ON LEAVE)</td>
+          <th colspan="1" id="lec1"> VJ- </th>
+          <td colspan="2" id="lec"> MR. VIJENDER </td>
+          <th colspan="1" id="lec1"> SSH-</th>
+          <td colspan="3" id="lec">MS. SONIA SHARMA</td>
+        </tr>
+        <tr>
+          <th colspan="1" id="lec1">KG-</th>
+          <td colspan="2" id="lec">DR. KANWAL GARG</td>
+          <th colspan="1" id="lec1"> KM- </th>
+          <td colspan="2" id="lec"> MS. KARTIKA MAKKAR</td>
+          <td rowspan="2" colspan="2" style="color: black; font-weight: 700;color:rgb(178, 34, 70); font-size: 25px;">
+            CHAIRMAN - DR. R.K CHAUHAN</td>
+        </tr>
+        <tr>
+          <th colspan="1" id="lec1">ST-</th>
+          <td colspan="2" id="lec">DR. SANJAY TYAGI</td>
+          <th colspan="1" id="lec1"> JS- </th>
+          <td colspan="2" id="lec"> MS. JYOTI SANGWAN</td>
+        </tr>
+      </tbody>
+    </table>
+    <!--       <table id=table1>
+        <th
+          style="writing-mode: tb-rl; transform: rotate(180deg)"
+          rowspan="10"
+          colspan="7"
+        >
+          LECTURER
+        </th>
+        <td id="ttt" rowspan="1">RKC - DR. R.K.CHAUHAN</td>
+        <td id="ttt">SL- Mr. Sachin Lalar</td>
+        <td id="ttt">PJK - MS. PRABHJOT KAUR</td>
+        <tr>
+          <td id="ttt">SU - DR. (MRS.) SHUCHITA UPADHYAYA</td>
+          <td id="ttt">YO – Ms. Yogita</td>
+          <td id="ttt">SG - MS. SEEMA GILL (ON LEAVE)</td>
+        </tr>
+        <tr>
+          <td id="ttt">RN - DR. RAJENDER NATH</td>
+          <td id="ttt">SS - MS SMITA SHARMA</td>
+          <td id="ttt">HS - MR. HARISH SAINI</td>
+        </tr>
+        <tr>
+          <td id="ttt">RK - DR. RAKESH KUMAR</td>
+          <td id="ttt">MN – MS MEENAKSHI</td>
+          <td id="ttt">JYS- MS. JYOTI SAINI</td>
+        </tr>
+        <tr>
+          <td id="ttt">PK - DR. PARDEEP KUMAR</td>
+          <td id="ttt">AN – MS ANKITA</td>
+          <td id="ttt">NI- MS. NISHA</td>
+        </tr>
+        <tr>
+          <td id="ttt">CK - DR. CHANDER KANT</td>
+          <td id="ttt">KTG - MS KIRTI GUPTA</td>
+          <td id="ttt">PR - MS. PREETI</td>
+        </tr>
+        <tr>
+          <td id="ttt">RKK – DR. RAMESH KUMAR KAIT</td>
+          <td id="ttt">JY - MS. JYOTI</td>
+          <td id="ttt">SO - MS. SONALI</td>
+        </tr>
+        <tr>
+          <td id="ttt">MO – DR. MONIKA (ON LEAVE)</td>
+          <td id="ttt">VJ - MR. VIJENDER</td>
+          <td id="ttt">SSH - MS. SONIA SHARMA</td>
+        </tr>
+        <tr>
+          <td id="ttt">KG – DR. KANWAL GARG</td>
+          <td id="ttt">KM - MS. KARTIKA MAKKAR</td>
+        </tr>
+        <tr>
+          <td id="ttt">ST - DR. SANJAY TYAGI</td>
+          <td id="ttt">JS - MS. JYOTI SANGWAN</td>
+        </tr>
+      </table> -->
+  </div>
+  <div class="footer">
+    3. Timetable Department of Computer Science and Applications, Kurukshetra</div>
+  <div id=footerc>Made by-Shubham Verma</div>
+</body>
+
+</html>
